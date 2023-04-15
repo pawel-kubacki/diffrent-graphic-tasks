@@ -61,93 +61,6 @@ document.getElementById('inputDraw').addEventListener('click', () => hex_Color(d
 // // ---------------------------------------------------------------------------------------------------------------
 
 
-const stateArray = {
-  tekst1: 'jeden',
-  tekst2: 'dwa',
-  tekst3: 'trzy',
-  tekst4: 'cztery',
-  tekst5: 'pięć',
-};
-
-const funOne = (stateArray) => {
-  stateArray.tekst1 = document.getElementById('input').value;
-  stateArray.tekst1 === 'qwerty' ? funTwo(stateArray) : stateArray.tekst1 === 'qwerty1' ? funThree(stateArray) : console.log('Ups');
-};
-
-const funThree = (stateArray) => {
-  stateArray.tekst1 += 'tak';
-  console.log(stateArray.tekst1);
-  funTwo(stateArray);
-};
-
-const funTwo = (stateArray) => {
-  stateArray.tekst1 === 'qwerty' ? console.log('stateArray: qwerty') : stateArray.tekst1 === 'qwerty1' ? console.log('stateArray: qwerty1') : stateArray.tekst1 === 'qwerty1tak' ? console.log('stateArray:', stateArray.tekst1) : console.log('??????????');
-};
-window.addEventListener('click', () => funOne(stateArray));
-
-
-// // ---------------------------------------------------------------------------------------------------------------
-
-
-const fun1 = (e) => {
-  e === 11 ? fun5(2, 3) : console.log('błąd');
-};
-
-const fun2 = (e) => {
-  return e * 5;
-};
-
-const fun5 = (a, b, c) => {
-  c = fun2(5);
-  console.log(a + b + c);
-};
-window.addEventListener('click', () => fun1(11));
-
-
-// // ---------------------------------------------------------------------------------------------------------------
-
-
-function multiplication(sum) {
-  var multi2 = sum * 2;
-  console.log(multi2);
-  return multi2;
-}
-
-function addition(x, y) {
-  var sum = x + y;
-  console.log(sum);
-  return multiplication(sum);
-}
-
-console.log(addition(1, 2));
-
-
-// // ---------------------------------------------------------------------------------------------------------------
-
-
-const create_element = (width, height) => {
-  document.querySelector('#Div1') ? document.querySelector('body').removeChild(document.querySelector('#Div1')) : console.log('nie ma');
-  let element_to_create = document.createElement('div');
-  element_to_create.setAttribute('id', 'Div1');
-  let text = document.createTextNode('Szerokość: ' + width + ' ' + 'Wysokość: ' + height);
-  element_to_create.style.width = width + 'px';
-  element_to_create.style.height = height + 'px';
-  element_to_create.style.background = 'lime';
-  element_to_create.appendChild(text);
-  document.querySelector('body').appendChild(element_to_create);
-};
-
-const take_width_and_height = (event) => {
-  let takeWidth = event.target.clientWidth;
-  let takeHeight = event.target.clientHeight;
-  return create_element(takeWidth, takeHeight);
-};
-window.addEventListener('click', take_width_and_height);
-
-
-// // ---------------------------------------------------------------------------------------------------------------
-
-
 const data = {
   ball: document.querySelector('#ball'),
   boxForBall: document.querySelector('#boxForBall'),
@@ -274,3 +187,26 @@ const checkedPosition = () => {
   }
 }
 point.addEventListener('transitionend', checkedPosition);
+
+
+// // ---------------------------------------------------------------------------------------------------------------
+
+
+const create_element = (width, height) => {
+  document.querySelector('#Div1') ? document.querySelector('body').removeChild(document.querySelector('#Div1')) : console.log('nie ma');
+  let element_to_create = document.createElement('div');
+  element_to_create.setAttribute('id', 'Div1');
+  let text = document.createTextNode('Szerokość: ' + width + ' ' + 'Wysokość: ' + height);
+  element_to_create.style.width = width + 'px';
+  element_to_create.style.height = height + 'px';
+  element_to_create.style.background = 'lime';
+  element_to_create.appendChild(text);
+  document.querySelector('body').appendChild(element_to_create);
+};
+
+const take_width_and_height = (event) => {
+  let takeWidth = event.target.clientWidth;
+  let takeHeight = event.target.clientHeight;
+  return create_element(takeWidth, takeHeight);
+};
+window.addEventListener('click', take_width_and_height);
